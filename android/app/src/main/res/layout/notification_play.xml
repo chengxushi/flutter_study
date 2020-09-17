@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LL_NMain"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:alpha="0.95"
+    android:background="@drawable/shape_black_8"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:paddingLeft="16dp"
+    android:paddingTop="10dp">
+
+
+    <ImageView
+        android:id="@+id/iv_NImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerCrop"
+        android:src="#F2F2F2" />
+
+    <TextView
+        android:id="@+id/tv_NTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:text="播放标题"
+        android:textColor="#999999"
+        android:textSize="16dp" />
+
+    <ImageView
+        android:id="@+id/iv_NPlay"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:padding="7dp"
+        android:src="@mipmap/icon_audiobar_play" />
+
+    <ImageView
+        android:id="@+id/iv_AudioNext"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="12dp"
+        android:padding="6dp"
+        android:visibility="gone"
+        android:src="@mipmap/ic_next" />
+
+    <ImageView
+        android:id="@+id/iv_NClose"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:padding="16dp"
+        android:src="@mipmap/icon_close" />
+</LinearLayout>
