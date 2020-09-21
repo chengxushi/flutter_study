@@ -7,6 +7,7 @@ import 'package:flutter_study/common/routers/router_util.dart';
 import 'package:flutter_study/common/routers/routers.dart';
 import 'package:flutter_study/provider/inherited_widget.dart';
 import 'package:flutter_study/test/share_text.dart';
+import 'package:flutter_study/test/skeleton.dart';
 import 'package:flutter_study/test/sqflite_page.dart';
 import 'package:flutter_study/test/webview_inapp.dart';
 import 'package:flutter_study/tici/autocue_home.dart';
@@ -18,6 +19,7 @@ import 'douyin/video_home.dart';
 import 'provider/provider_state_widget_1.dart';
 import 'test/Notifications.dart';
 import 'test/android_native.dart';
+import 'test/animated_cross.dart';
 import 'test/button_my.dart';
 import 'test/hero_my.dart';
 import 'test/huadongwebview.dart';
@@ -59,6 +61,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   UniLinksType _type = UniLinksType.string;
   StreamSubscription _sub;
+  var count = 0;
   
   @override
   void initState() {
@@ -107,11 +110,13 @@ class _HomePageState extends State<HomePage> {
   
   @override
   Widget build(BuildContext context) {
+    count = 0;
     return Scaffold(
       appBar: AppBar(
         title: Text("首页"),
       ),
       body: ListView(
+        itemExtent: 40,
         children: <Widget>[
           _item('上拉抽屉', SlidingUP()),
           _item('通知栏', Notifications()),
@@ -129,6 +134,8 @@ class _HomePageState extends State<HomePage> {
           _item('分享文本', ShareText()),
           _item('按钮组', ButtonMy()),
           _item('hero动画', CustomHero()),
+          _item('骨架图的闪亮效果', Skeleton()),
+          _item('AnimatedCrossFade使用', CurveAnimatedCrossFade()),
         ],
       ),
     );

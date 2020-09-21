@@ -41,6 +41,7 @@ dependencies:
   share: ^0.6.5 #文本分享
   provider: ^4.3.2 #状态管理
   fluro: ^1.6.3 #路由管理
+  shimmer: ^1.1.1 #闪亮效果
 
 dev_dependencies:
   flutter_test:

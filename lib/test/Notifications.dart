@@ -12,7 +12,7 @@ class Notifications extends StatefulWidget {
   NotificationsState createState() => new NotificationsState();
 }
 
-class NotificationsState extends State<Notifications> {
+class NotificationsState extends State<Notifications>{
 //  FlutterLocalNotificationsPlugin tongZhiLan = FlutterLocalNotificationsPlugin();
 //  @override
 //  void initState() {
@@ -25,42 +25,19 @@ class NotificationsState extends State<Notifications> {
 //  }
   
   @override
+  void initState() {
+    super.initState();
+  }
+  
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Column(
         children: [
-          Container(
-            width: 50,
-            height: 200,
-            color: Colors.amber,
-          ),
-          Container(
-            width: 50,
-            height: 200,
-            color: Colors.blue,
-          ),
         ],
       ),
     );
-    // return Scaffold(
-    //   appBar: AppBar(title: Text('通知栏'),),
-    //   body: ListView(
-    //     children: <Widget>[
-    //       FlatButton(
-    //           onPressed: (){
-    //             _showNotification();
-    //           },
-    //           child: Text('点击弹出通知栏')),
-    //       RaisedButton(
-    //         onPressed: (){
-    //
-    //         },
-    //         child: Text('媒体通知栏'),
-    //       )
-    //     ],
-    //   ),
-    // );
   }
 
   Future _showNotification() async {
