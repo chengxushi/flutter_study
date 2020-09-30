@@ -11,6 +11,7 @@ import '../../main.dart';
 class Routers {
   static final Router router = Router();
   static final String home = '/home';
+  static const String webView = '/webView';
   static final List<RouterProvider> _listRouter = [];
   
   static void initRoutes(){

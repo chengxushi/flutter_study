@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_study/common/routers/router_util.dart';
 import 'package:flutter_study/common/routers/routers.dart';
+import 'package:flutter_study/moments/moments_page.dart';
 import 'package:flutter_study/provider/inherited_widget.dart';
+import 'package:flutter_study/test/async_test.dart';
 import 'package:flutter_study/test/share_text.dart';
 import 'package:flutter_study/test/skeleton.dart';
 import 'package:flutter_study/test/sqflite_page.dart';
@@ -13,6 +15,7 @@ import 'package:flutter_study/test/webview_inapp.dart';
 import 'package:flutter_study/tici/autocue_home.dart';
 import 'package:flutter_study/tici/maruqee_page.dart';
 import 'package:uni_links/uni_links.dart';
+import 'package:nav_router/nav_router.dart';
 
 import 'camera/camera_page.dart';
 import 'douyin/video_home.dart';
@@ -21,6 +24,7 @@ import 'test/Notifications.dart';
 import 'test/android_native.dart';
 import 'test/animated_cross.dart';
 import 'test/button_my.dart';
+import 'test/custom_paint_route.dart';
 import 'test/hero_my.dart';
 import 'test/huadongwebview.dart';
 import 'test/sliding_up.dart';
@@ -44,6 +48,7 @@ class MyApp extends StatelessWidget {
       ),
       onGenerateRoute: Routers.router.generator,
       home: HomePage(title: 'Flutter Demo Home Page'),
+      navigatorKey: navGK,
     );
   }
 }
@@ -118,6 +123,7 @@ class _HomePageState extends State<HomePage> {
       body: ListView(
         itemExtent: 40,
         children: <Widget>[
+          _item('异步的测试', AsyncTest()),
           _item('上拉抽屉', SlidingUP()),
           _item('通知栏', Notifications()),
           _item('状态管理', ProviderState1Widget()),
@@ -136,6 +142,8 @@ class _HomePageState extends State<HomePage> {
           _item('hero动画', CustomHero()),
           _item('骨架图的闪亮效果', Skeleton()),
           _item('AnimatedCrossFade使用', CurveAnimatedCrossFade()),
+          _item('朋友圈', MomentsPage()),
+          _item('自绘棋盘', CustomPaintRoute()),
         ],
       ),
     );

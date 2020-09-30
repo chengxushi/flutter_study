@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-/// @description
+/// @description 闪亮骨架图
 /// @Created by huang
 /// @Date   2020/9/18
 /// @email  a12162266@163.com
