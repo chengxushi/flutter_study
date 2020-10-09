@@ -1,4 +1,4 @@
-/// @description 
+/// @description
 /// @Created by huang
 /// @Date   2020/9/23
 /// @email  a12162266@163.com
@@ -17,15 +17,15 @@ class DetailModel {
 
   DetailModel(
       {String avatar,
-        List<Avs> avs,
-        String comment,
-        String content,
-        String createTime,
-        int id,
-        String name,
-        String pusher,
-        int shareNum,
-        int status}) {
+      List<Avs> avs,
+      String comment,
+      String content,
+      String createTime,
+      int id,
+      String name,
+      String pusher,
+      int shareNum,
+      int status}) {
     this._avatar = avatar;
     this._avs = avs;
     this._comment = comment;
@@ -37,7 +37,7 @@ class DetailModel {
     this._shareNum = shareNum;
     this._status = status;
   }
-  
+
   String get avatar => _avatar;
   set avatar(String avatar) => _avatar = avatar;
   List<Avs> get avs => _avs;
@@ -76,7 +76,7 @@ class DetailModel {
     _shareNum = json['shareNum'];
     _status = json['status'];
   }
-  
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['avatar'] = this._avatar;
@@ -102,14 +102,14 @@ class Avs {
   int _orderNum;
   String _path;
   int _type;
-  
+
   Avs(
       {String createTime,
-        int fansPopId,
-        int id,
-        int orderNum,
-        String path,
-        int type}) {
+      int fansPopId,
+      int id,
+      int orderNum,
+      String path,
+      int type}) {
     this._createTime = createTime;
     this._fansPopId = fansPopId;
     this._id = id;
@@ -117,7 +117,7 @@ class Avs {
     this._path = path;
     this._type = type;
   }
-  
+
   String get createTime => _createTime;
   set createTime(String createTime) => _createTime = createTime;
   int get fansPopId => _fansPopId;
@@ -130,7 +130,7 @@ class Avs {
   set path(String path) => _path = path;
   int get type => _type;
   set type(int type) => _type = type;
-  
+
   Avs.fromJson(Map<String, dynamic> json) {
     _createTime = json['createTime'];
     _fansPopId = json['fansPopId'];
@@ -139,7 +139,7 @@ class Avs {
     _path = json['path'];
     _type = json['type'];
   }
-  
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['createTime'] = this._createTime;

@@ -1,0 +1,1 @@
+--output router --routes-file-output router --route-constants --route-helper --no-is-initial-route

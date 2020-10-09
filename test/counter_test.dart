@@ -1,6 +1,7 @@
 
 import 'package:flutter_study/widget/count.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:dart_style/dart_style.dart';
 
 /// @description 
 /// @Created by huang
@@ -20,5 +21,14 @@ void main(){
       counter.decrement();
       expect(counter.value, 0);
     });
+  });
+  
+  test('格式化代码测试', (){
+    var formatter = DartFormatter();
+    try{
+      print(formatter.format('lib/moments/detail_model.dart'));
+    } catch (e){
+      print(e.toString());
+    }
   });
 }

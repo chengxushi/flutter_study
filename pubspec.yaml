@@ -44,13 +44,14 @@ dependencies:
   shimmer: ^1.1.1 #闪亮效果
   extended_image: ^1.1.0 #图片工具(支持缓存网络图片等)
   package_info: 0.4.1 #获取App信息
-  nav_router: ^0.0.7
+#  nav_router: ^0.0.7
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_driver:
     sdk: flutter
+  ff_annotation_route: ^4.0.2 #注解路由
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

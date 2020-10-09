@@ -1,12 +1,10 @@
 import 'dart:async';
 
-import 'package:fluro/fluro.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_study/common/routers/router_util.dart';
 import 'package:flutter_study/common/routers/routers.dart';
 import 'package:flutter_study/moments/moments_page.dart';
-import 'package:flutter_study/provider/inherited_widget.dart';
 import 'package:flutter_study/test/async_test.dart';
 import 'package:flutter_study/test/share_text.dart';
 import 'package:flutter_study/test/skeleton.dart';
@@ -15,11 +13,14 @@ import 'package:flutter_study/test/webview_inapp.dart';
 import 'package:flutter_study/tici/autocue_home.dart';
 import 'package:flutter_study/tici/maruqee_page.dart';
 import 'package:uni_links/uni_links.dart';
-import 'package:nav_router/nav_router.dart';
 
 import 'camera/camera_page.dart';
 import 'douyin/video_home.dart';
 import 'provider/provider_state_widget_1.dart';
+import 'router/flutter_study_route.dart';
+import 'router/flutter_study_route_helper.dart';
+import 'router/flutter_study_routes.dart';
+import 'router/router_test.dart';
 import 'test/Notifications.dart';
 import 'test/android_native.dart';
 import 'test/animated_cross.dart';
@@ -46,9 +47,23 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      onGenerateRoute: Routers.router.generator,
+      // onGenerateRoute: Routers.router.generator,
+      onGenerateRoute: (RouteSettings settings){
+        if(kIsWeb && settings.name.startsWith('/')){
+          return onGenerateRouteHelper(
+            settings.copyWith(name: settings.name.replaceFirst('/', '')),
+            notFoundFallback: getRouteResult(name: Routes.routerNotArg).widget,
+          );
+        }
+        return onGenerateRouteHelper(
+          settings,
+          builder: (Widget child, RouteResult result){
+            
+            return child;
+          }
+        );
+      },
       home: HomePage(title: 'Flutter Demo Home Page'),
-      navigatorKey: navGK,
     );
   }
 }
@@ -144,6 +159,7 @@ class _HomePageState extends State<HomePage> {
           _item('AnimatedCrossFade使用', CurveAnimatedCrossFade()),
           _item('朋友圈', MomentsPage()),
           _item('自绘棋盘', CustomPaintRoute()),
+          _item('法法注解路由', RouterTest()),
         ],
       ),
     );

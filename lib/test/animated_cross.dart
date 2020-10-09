@@ -1,7 +1,5 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
 /// @description
 /// @Created by huang
 /// @Date   2020/9/18
@@ -13,8 +11,8 @@ class CurveAnimatedCrossFade extends StatefulWidget {
 
 class _CurveAnimatedCrossFadeState extends State<CurveAnimatedCrossFade> {
   var _crossFadeState = CrossFadeState.showFirst;
-  
-  bool get isFirst=> _crossFadeState == CrossFadeState.showFirst;
+
+  bool get isFirst => _crossFadeState == CrossFadeState.showFirst;
 
   final Decoration startDecoration = BoxDecoration(
       color: Colors.blue,
@@ -36,25 +34,26 @@ class _CurveAnimatedCrossFadeState extends State<CurveAnimatedCrossFade> {
   Decoration _decoration;
   double _height;
   Alignment _alignment;
-  
-  ValueNotifier<CrossFadeState> _notifier = ValueNotifier<CrossFadeState>(CrossFadeState.showFirst);
+
+  ValueNotifier<CrossFadeState> _notifier =
+      ValueNotifier<CrossFadeState>(CrossFadeState.showFirst);
 
   @override
   void initState() {
     _decoration = startDecoration;
     _height = startHeight;
-    _alignment=startAlignment;
+    _alignment = startAlignment;
     super.initState();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
+        onPressed: () {
           print('${_notifier.value}');
-          if(_notifier.value == CrossFadeState.showFirst){
+          if (_notifier.value == CrossFadeState.showFirst) {
             _notifier.value = CrossFadeState.showSecond;
           } else {
             _notifier.value = CrossFadeState.showFirst;
@@ -65,49 +64,61 @@ class _CurveAnimatedCrossFadeState extends State<CurveAnimatedCrossFade> {
         children: [
           Wrap(
             children: <Widget>[
-              ValueListenableBuilder(valueListenable: _notifier, builder: (context,value, child){
-                return GestureDetector(
-                  onTap: (){
-                    setState(() {
-                      if(_crossFadeState == CrossFadeState.showFirst){
-                        _crossFadeState = CrossFadeState.showSecond;
-                      } else {
-                        _crossFadeState = CrossFadeState.showFirst;
-                      }
-                    });
-                  },
-                  child: Container(
-                    child: AnimatedCrossFade(
-                      firstCurve: Curves.easeInCirc,
-                      secondCurve: Curves.easeInToLinear,
-                      sizeCurve: Curves.bounceOut,
-                      firstChild: Container(
-                        alignment: Alignment.center,
-                        width: 200,
-                        height: 80,
-                        color: Colors.orange  ,
-                        child: FlutterLogo(textColor: Colors.blue,size: 50,),
-                      ),
-                      secondChild: Container(
-                        width: 200,
-                        height: 150,
-                        alignment: Alignment.center,
-                        color: Colors.blue,
-                        child: FlutterLogo(
-                          textColor: Colors.white,
+              ValueListenableBuilder(
+                valueListenable: _notifier,
+                builder: (context, value, child) {
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (_crossFadeState == CrossFadeState.showFirst) {
+                          _crossFadeState = CrossFadeState.showSecond;
+                        } else {
+                          _crossFadeState = CrossFadeState.showFirst;
+                        }
+                      });
+                    },
+                    child: Container(
+                      child: AnimatedCrossFade(
+                        firstCurve: Curves.easeInCirc,
+                        secondCurve: Curves.easeInToLinear,
+                        sizeCurve: Curves.bounceOut,
+                        firstChild: Container(
+                          alignment: Alignment.center,
+                          width: 200,
+                          height: 80,
+                          color: Colors.orange,
+                          child: FlutterLogo(
+                            textColor: Colors.blue,
+                            size: 50,
+                          ),
+                        ),
+                        secondChild: Container(
+                          width: 200,
+                          height: 150,
+                          alignment: Alignment.center,
+                          color: Colors.blue,
+                          child: FlutterLogo(
+                            textColor: Colors.white,
 //                colors: Colors.orange,
-                          size: 100,style: FlutterLogoStyle.stacked,),
+                            size: 100, style: FlutterLogoStyle.stacked,
+                          ),
+                        ),
+                        duration: Duration(milliseconds: 1000),
+                        crossFadeState: _notifier.value,
                       ),
-                      duration: Duration(milliseconds: 1000),
-                      crossFadeState: _notifier.value,
                     ),
-                  ),
-                );
-              },),
+                  );
+                },
+              ),
               _buildSwitch(),
             ],
           ),
-          Text('两个组件切换时呈现动画效果', style: TextStyle(fontSize: 20,),),
+          Text(
+            '两个组件切换时呈现动画效果',
+            style: TextStyle(
+              fontSize: 20,
+            ),
+          ),
           AnimatedContainer(
             duration: Duration(seconds: 1),
             curve: Curves.fastOutSlowIn,
@@ -126,22 +137,26 @@ class _CurveAnimatedCrossFadeState extends State<CurveAnimatedCrossFade> {
               ),
             ),
           ),
-          Switch(value: _height == endHeight, onChanged: (v){
-            setState(() {
-              _height = v ? endHeight : startHeight;
-              _decoration = v ? endDecoration : startDecoration;
-              _alignment = v ? endAlignment : startAlignment;
-            });
-          })
+          Switch(
+              value: _height == endHeight,
+              onChanged: (v) {
+                setState(() {
+                  _height = v ? endHeight : startHeight;
+                  _decoration = v ? endDecoration : startDecoration;
+                  _alignment = v ? endAlignment : startAlignment;
+                });
+              })
         ],
       ),
     );
   }
-  
-  Widget _buildSwitch() => Switch(value: isFirst, onChanged: (v){
-    setState(() {
-      _crossFadeState= v?CrossFadeState.showFirst:CrossFadeState.showSecond;
-    });
-  });
-}
 
+  Widget _buildSwitch() => Switch(
+      value: isFirst,
+      onChanged: (v) {
+        setState(() {
+          _crossFadeState =
+              v ? CrossFadeState.showFirst : CrossFadeState.showSecond;
+        });
+      });
+}
