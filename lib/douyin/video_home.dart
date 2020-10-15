@@ -43,10 +43,10 @@ class VideoHomeState extends State<VideoHome> {
           onLoad: ()async{
             if(videoDataList.length <= 10){
               setState(() {
-                videoDataList.add(UserVideo(image: 'assets/splas_2.png', url: mV2, desc: '5555555555555555'));
-                videoDataList.add(UserVideo(image: 'assets/pic_2.jpg', url: mockVideo, desc: '6666666666666666'));
-                videoDataList.add(UserVideo(image: 'assets/pic_3.jpg', url: mV4, desc: '7777777777777777777'));
-                videoDataList.add(UserVideo(image: 'assets/pic_4.jpg', url: mV5, desc: '88888888888888888'));
+                videoDataList.add(UserVideo(image: 'assets/images/splas_2.png', url: mV5, desc: '5555555555555555'));
+                videoDataList.add(UserVideo(image: 'assets/images/pic_2.jpg', url: mV6, desc: '6666666666666666'));
+                videoDataList.add(UserVideo(image: 'assets/images/pic_3.jpg', url: mV7, desc: '7777777777777777777'));
+                videoDataList.add(UserVideo(image: 'assets/images/pic_4.jpg', url: mV8, desc: '88888888888888888'));
               });
             }else {
               Fluttertoast.showToast(msg: '无更多数据');
@@ -68,7 +68,7 @@ class VideoHomeState extends State<VideoHome> {
                 },
                 child: Container(
                   color: Colors.amberAccent,
-                  child: Image.asset(videoDataList[index].image, fit: BoxFit.contain,),
+                  child: Image.asset(videoDataList[index].image, fit: BoxFit.cover,),
                 ),
               );
             },

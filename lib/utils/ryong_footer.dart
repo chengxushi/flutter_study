@@ -112,7 +112,7 @@ class RYongFooterFooterWidgetState extends State<RYongFooterFooterWidget> {
                     alignment: Alignment.center,
                     height: 40,
                     child: Image.asset(
-                      'assets/splas_2.png',
+                      'assets/images/splas_2.png',
                       fit: BoxFit.fitHeight,
                     ),
                   ),

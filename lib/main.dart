@@ -4,11 +4,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_study/common/routers/routers.dart';
+import 'package:flutter_study/douyin/tiktok/tiktok_home.dart';
 import 'package:flutter_study/moments/moments_page.dart';
 import 'package:flutter_study/test/async_test.dart';
+import 'package:flutter_study/test/flare_test.dart';
 import 'package:flutter_study/test/share_text.dart';
 import 'package:flutter_study/test/skeleton.dart';
 import 'package:flutter_study/test/sqflite_page.dart';
+import 'package:flutter_study/test/tabbar_test.dart';
 import 'package:flutter_study/test/webview_inapp.dart';
 import 'package:flutter_study/tici/autocue_home.dart';
 import 'package:flutter_study/tici/maruqee_page.dart';
@@ -58,7 +61,6 @@ class MyApp extends StatelessWidget {
         return onGenerateRouteHelper(
           settings,
           builder: (Widget child, RouteResult result){
-            
             return child;
           }
         );
@@ -141,12 +143,13 @@ class _HomePageState extends State<HomePage> {
           _item('异步的测试', AsyncTest()),
           _item('上拉抽屉', SlidingUP()),
           _item('通知栏', Notifications()),
-          _item('状态管理', ProviderState1Widget()),
+          _item('状态管理Provider', ProviderState1Widget()),
 //          _item('音乐播放器', BoFangAudio()),
           _item('MethodChannel', AndroidNative()),
           _item('ios滑动网页', huadongwebview()),
           _item('数据库', SqflitePage()),
           _item('抖音', VideoHome()),
+          _item('TikTok', TikTokHome()),
           _item('提词器', AutocueHome()),
           _item('拍照', CameraPage()),
           _item('字幕', MaruqeePage()),
@@ -160,6 +163,8 @@ class _HomePageState extends State<HomePage> {
           _item('朋友圈', MomentsPage()),
           _item('自绘棋盘', CustomPaintRoute()),
           _item('法法注解路由', RouterTest()),
+          _item('flare动画', FlareTest()),
+          _item('tab切换', TabBarTest()),
         ],
       ),
     );

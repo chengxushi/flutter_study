@@ -2,8 +2,8 @@ import 'package:fijkplayer/fijkplayer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
-import 'custom_fijk_panel.dart';
-import 'tikTokVideo.dart';
+import 'widget/custom_fijk_panel.dart';
+import 'widget/tikTokVideo.dart';
 import 'tikTokVideoPlayer.dart';
 import 'video.dart';
 

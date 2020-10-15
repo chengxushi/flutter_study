@@ -12,7 +12,7 @@ class ProviderState1Widget extends StatelessWidget{
   Widget build(BuildContext context) {
     debugPrint('home build');
     return Scaffold(
-      appBar: AppBar(title: Text('状态管理'),),
+      appBar: AppBar(title: Text('状态管理Provider'),),
       body: ChangeNotifierProvider(
         create: (context){
           return TestModel(modelValue: 1, modelValue2: 1);
@@ -95,6 +95,19 @@ class ChildWidget3 extends StatelessWidget{
     return Container(
       child: RaisedButton(onPressed: (){
           context.read<TestModel>().add();
+        },
+        child: Icon(Icons.add),),
+    );
+  }
+  
+}
+class ChildWidget4 extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    debugPrint('ChildWidget4 build');
+    return Container(
+      child: RaisedButton(onPressed: (){
+          context.select((value) => null);
         },
         child: Icon(Icons.add),),
     );

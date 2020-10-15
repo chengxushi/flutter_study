@@ -44,7 +44,7 @@ dependencies:
   shimmer: ^1.1.1 #闪亮效果
   extended_image: ^1.1.0 #图片工具(支持缓存网络图片等)
   package_info: 0.4.1 #获取App信息
-#  nav_router: ^0.0.7
+  flare_flutter: ^1.5.4 #flare动画
 
 dev_dependencies:
   flutter_test:
@@ -61,3 +61,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/flr/

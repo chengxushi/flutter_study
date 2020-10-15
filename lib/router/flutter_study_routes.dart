@@ -5,6 +5,17 @@
 class Routes {
   const Routes._();
 
+  /// '/PhotoPlay'
+  ///
+  /// [name] : '/PhotoPlay'
+  ///
+  /// [constructors] :
+  ///
+  /// PhotoPlay : [Key key, List pics, int index]
+  ///
+  /// [pageRouteType] : PageRouteType.transparent
+  static const String photoPlay = '/PhotoPlay';
+
   /// '/routeNew'
   ///
   /// [name] : '/routeNew'

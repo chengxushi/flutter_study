@@ -1,12 +1,17 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:extended_image/extended_image.dart';
+import 'package:flutter/material.dart';
+import 'package:ff_annotation_route/ff_annotation_route.dart';
 /// @description
 /// @Created by huang
 /// @Date   2020/4/1
 /// @email  a12162266@163.com
 
-import 'package:flutter/material.dart';
+@FFRoute(
+  name: '/PhotoPlay',
+  pageRouteType: PageRouteType.transparent,
+)
 
 class PhotoPlay extends StatefulWidget {
   final List pics;

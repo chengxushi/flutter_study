@@ -6,6 +6,7 @@
 import 'package:ff_annotation_route/ff_annotation_route.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_study/moments/detail_model.dart';
+import '../moments/photo_play.dart';
 import 'route_new.dart';
 import 'router_arg.dart';
 import 'router_not_arg.dart';
@@ -13,6 +14,16 @@ import 'router_not_arg.dart';
 RouteResult getRouteResult({String name, Map<String, dynamic> arguments}) {
   arguments = arguments ?? const <String, dynamic>{};
   switch (name) {
+    case '/PhotoPlay':
+      return RouteResult(
+        name: name,
+        widget: PhotoPlay(
+          key: arguments['key'] as Key,
+          pics: arguments['pics'] as List,
+          index: arguments['index'] as int,
+        ),
+        pageRouteType: PageRouteType.transparent,
+      );
     case '/routeNew':
       return RouteResult(
         name: name,

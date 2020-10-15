@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_study/moments/detail_model.dart';
 import 'package:flutter_study/moments/photo_play.dart';
 import 'package:flutter_study/moments/video_play.dart';
+import 'package:flutter_study/router/flutter_study_routes.dart';
 
 /// @description
 /// @Created by huang
@@ -209,17 +210,21 @@ class MomentsPageState extends State<MomentsPage> {
             for (int i = 0; i < avList.length; i++) {
               imageList.add(avList[i].path);
             }
-            Navigator.push(
-              context,
-              PageRouteBuilder(
-                opaque: false,
-                pageBuilder: (context, animation, secondaryAnimation) =>
-                    PhotoPlay(
-                  pics: imageList,
-                  index: index,
-                ),
-              ),
-            );
+            Navigator.pushNamed(context, Routes.photoPlay, arguments: <String, dynamic>{
+              'pics': imageList,
+              'index': index,
+            });
+            // Navigator.push(
+            //   context,
+            //   PageRouteBuilder(
+            //     opaque: false,
+            //     pageBuilder: (context, animation, secondaryAnimation) =>
+            //         PhotoPlay(
+            //       pics: imageList,
+            //       index: index,
+            //     ),
+            //   ),
+            // );
           },
           child: Hero(
             tag: avList[index].path,

@@ -93,7 +93,7 @@ class _RYongHeaderWidgetState extends State<RYongHeaderWidget> {
       margin: EdgeInsets.only(top: 30),
       height: 30,
       child: Image.asset(
-        'assets/splas_2.png',
+        'assets/images/splas_2.png',
         fit: BoxFit.fitHeight,
       ),
     );
